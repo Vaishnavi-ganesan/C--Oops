@@ -1,0 +1,132 @@
+ABSTRACTION:
+
+#include <iostream>
+using namespace std;
+
+// Abstract base class
+class Animal {
+public:
+  virtual void makeSound() = 0; // Pure virtual function
+};
+
+// Derived class 1
+class Dog : public Animal {
+public:
+  void makeSound() override {
+    cout << "The dog says: Woof!" << endl;
+  }
+};
+
+// Derived class 2
+class Cat : public Animal {
+public:
+  void makeSound() override {
+    cout << "The cat says: Meow!" << endl;
+  }
+};
+
+int main() {
+  Dog dog;
+  Cat cat;
+
+  dog.makeSound();
+  cat.makeSound();
+
+  return 0;
+}
+
+
+ENCAPSULATION:
+
+#include <iostream>
+using namespace std;
+
+class Employee {
+  private:
+    // Private attribute
+    int salary;
+
+  public:
+    // Setter
+    void setSalary(int s) {
+      salary = s;
+    }
+    // Getter
+    int getSalary() {
+      return salary;
+    }
+};
+
+int main() {
+  Employee myObj;
+  myObj.setSalary(50000);
+  cout << myObj.getSalary();
+  return 0;
+}
+
+INHERITANCE:
+
+#include <iostream>
+using namespace std;
+
+// Base class
+class Vehicle {
+  public:
+    string brand = "Ford";
+    void honk() {
+      cout << "Tuut, tuut! \n" ;
+    }
+};
+
+// Derived class
+class Car: public Vehicle {
+  public:
+    string model = "Mustang";
+};
+
+int main() {
+  Car myCar;
+  myCar.honk();
+  cout << myCar.brand + " " + myCar.model;
+  return 0;
+}
+
+POLYMORPHISM:
+
+#include <iostream>
+using namespace std;
+
+// Base class
+class Animal {
+  public:
+    void animalSound() {
+      cout << "The animal makes a sound \n";
+    }
+};
+
+// Derived class
+class Pig : public Animal {
+  public:
+    void animalSound() {
+      cout << "The pig says: wee wee \n";
+    }
+};
+
+// Derived class
+class Dog : public Animal {
+  public:
+    void animalSound() {
+      cout << "The dog says: bow wow \n";
+    }
+};
+
+int main() {
+  Animal myAnimal;
+  Pig myPig;
+  Dog myDog;
+
+  myAnimal.animalSound();
+  myPig.animalSound();
+  myDog.animalSound();
+  return 0;
+}
